@@ -1,42 +1,59 @@
-<!-- semantic.css  -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
-<!-- semantic.js  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <!-- semantic.css  -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <!-- semantic.js  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    </head>
 
-{% if movie_list %}
-    <h1>映画一覧</h1>
-    <!-- 
-    {% for movie in movie_list %}
-        <li>
-            movie.idの'id'はデータを入力したときに自動で付与される
-            <a href="{% url 'app2:movie_detail' movie.id %}">{{ movie.title }}</a>
-            {{ movie.director }}
-            {{ movie.watch_date }}
-        </li>
-    {% endfor %}
-    -->
-    <table>
-        <tr>
-            <th>タイトル</th>
-            <th>監督</th>
-            <th>日付</th>
-        </tr>
-        {% for movie in movie_list %}
-        <tr><td><a href="{% url 'app2:movie_detail' movie.id %}">{{ movie.title }}</a></td>
-            <td>{{ movie.director }}</td>
-            <td>{{ movie.watch_date }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    </br>
-    <a href="{% url 'app2:add_director' %}">監督を登録</a>
-    </br>
-    <a href="{% url 'app2:add_log' %}">感想を登録</a>
-    </br>
-    <a href="{% url 'app2:add_movie' %}">映画を登録</a>
-    </br>
-    <!-- semantic uiが適用されているかどうかの確認用ボタン  -->
-    <button class="ui button">Follow</button>
-{% else %}
-    <p>No available.</p>
-{% endif %}
+    <style type="text/css">
+        body {
+           margin: 40px;   /* 外側の余白を40pxにする */
+           padding: 0;     /* 内側の余白を消す(念のため) */
+        }
+    </style>
+
+    <body>
+        {% if movie_list %}
+            <h1>映画一覧</h1>
+            <!-- 
+            {% for movie in movie_list %}
+                <li>
+                    movie.idの'id'はデータを入力したときに自動で付与される
+                    <a href="{% url 'app2:movie_detail' movie.id %}">{{ movie.title }}</a>
+                    {{ movie.director }}
+                    {{ movie.watch_date }}
+                </li>
+            {% endfor %}
+            -->
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                    <th>タイトル</th>
+                    <th>監督</th>
+                    <th>日付</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for movie in movie_list %}
+                    <tr><td><a href="{% url 'app2:movie_detail' movie.id %}">{{ movie.title }}</a></td>
+                        <td>{{ movie.director }}</td>
+                        <td>{{ movie.watch_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </br>
+            <a href="{% url 'app2:add_director' %}">監督を登録</a>
+            </br>
+            <a href="{% url 'app2:add_log' %}">感想を登録</a>
+            </br>
+            <a href="{% url 'app2:add_movie' %}">映画を登録</a>
+            </br>
+        {% else %}
+            <p>No available.</p>
+        {% endif %}
+    </body>
+</html>
