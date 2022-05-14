@@ -1,0 +1,34 @@
+{% if movie_list %}
+    <h1>映画一覧</h1>
+    <!-- 
+    {% for movie in movie_list %}
+        <li>
+            movie.idの'id'はデータを入力したときに自動で付与される
+            <a href="{% url 'app2:movie_detail' movie.id %}">{{ movie.title }}</a>
+            {{ movie.director }}
+            {{ movie.watch_date }}
+        </li>
+    {% endfor %}
+    -->
+    <table>
+        <tr>
+            <th>タイトル</th>
+            <th>監督</th>
+            <th>日付</th>
+        </tr>
+        {% for movie in movie_list %}
+        <tr><td><a href="{% url 'app2:movie_detail' movie.id %}">{{ movie.title }}</a></td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.watch_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </br>
+    <a href="{% url 'app2:add_director' %}">監督を登録</a>
+    </br>
+    <a href="{% url 'app2:add_log' %}">感想を登録</a>
+    </br>
+    <a href="{% url 'app2:add_movie' %}">映画を登録</a>
+{% else %}
+    <p>No available.</p>
+{% endif %}
