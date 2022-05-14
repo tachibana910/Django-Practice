@@ -1,10 +1,10 @@
-<!-- semantic.css  -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
-<!-- semantic.js  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+{% extends './base.html' %}
+{% block app %}
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="ui primary button" type=""submit>save</button>
-</form>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="ui primary button" type=""submit>save</button>
+    </form>
+
+{% endblock %}

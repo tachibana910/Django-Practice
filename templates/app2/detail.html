@@ -1,26 +1,26 @@
-<!-- semantic.css  -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
-<!-- semantic.js  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+{% extends './base.html' %}
+{% block app %}
 
-<h1>{{ movie.title }}</h1>
-<h2>{{ movie.director }}</h2>
-<h3>{{ movie.watch_date }}視聴</h3>
+    <h1>{{ movie.title }}</h1>
+    <h2>{{ movie.director }}</h2>
+    <h3>{{ movie.watch_date }}視聴</h3>
 
-{% for log in movie.log.all %}
-    <li>
-        <!-- ログ更新ボタン -->
-        <!-- <button onclick='location.href="{% url 'app2:update_log' log.id %}"'>edit</button> -->
-        <a href="{% url 'app2:update_log' log.id %}">edit</a> 
-        <!-- ログ削除ボタン  -->
-        <!-- <button onclick="location.href='{% url 'app2:delete_log' log.id %}'">delete</button> -->
-        <a href="{% url 'app2:delete_log' log.id %}">delete</a>
-        {{ log.text }}
-    </li>
-{% endfor %}
-</br>
-<a href="{% url 'app2:add_thelog' movie.id %}">感想を登録</a>
-</br>
-<a href="{% url 'app2:delete_movie' movie.id %}">映画を削除</a>
-</br>
-<a href="{% url 'app2:index' %}">一覧へ戻る</a>
+    {% for log in movie.log.all %}
+        <li>
+            <!-- ログ更新ボタン -->
+            <!-- <button onclick='location.href="{% url 'app2:update_log' log.id %}"'>edit</button> -->
+            <a href="{% url 'app2:update_log' log.id %}">edit</a> 
+            <!-- ログ削除ボタン  -->
+            <!-- <button onclick="location.href='{% url 'app2:delete_log' log.id %}'">delete</button> -->
+            <a href="{% url 'app2:delete_log' log.id %}">delete</a>
+            {{ log.text }}
+        </li>
+    {% endfor %}
+    </br>
+    <a href="{% url 'app2:add_thelog' movie.id %}">感想を登録</a>
+    </br>
+    <a href="{% url 'app2:delete_movie' movie.id %}">映画を削除</a>
+    </br>
+    <a href="{% url 'app2:index' %}">一覧へ戻る</a>
+    
+{% endblock %}

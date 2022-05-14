@@ -8,13 +8,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
 
         <!-- ナビゲーションバー -->
-        <nav class="navbar navbar-light bg-light fixed-top">
-            <a class='navbar-brand' href="{% url 'app2:index' %}">Djangoアプリ</a>
-        </nav>
+        <div class="ui inverted large borderless fixed fluid menu column">
+            <a class="header item" href="{% url 'app2:index' %}">Djangoアプリ</a>
+        </div>
 
         <style type="text/css">
             body {
-               margin: 40px;   /* 外側の余白を40pxにする */
+               margin: 45px;   /* 外側の余白を40pxにする */
                padding: 0;     /* 内側の余白を消す(念のため) */
             }
         </style>
