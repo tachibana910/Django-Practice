@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <!-- semantic.css  -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <!-- semantic.js  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+
+        <!-- ナビゲーションバー -->
+        <nav class="navbar navbar-light bg-light fixed-top">
+            <a class='navbar-brand' href="{% url 'app2:index' %}">Djangoアプリ</a>
+        </nav>
+
+        <style type="text/css">
+            body {
+               margin: 40px;   /* 外側の余白を40pxにする */
+               padding: 0;     /* 内側の余白を消す(念のため) */
+            }
+        </style>
+    </head>
+ 
+    <!-- ボディー -->
+    <body>
+        <div class='container'>
+            {% block app %}
+            {% endblock %}
+        </div>
+    </body>
+ 
+    <!-- フッター -->
+    <footer>
+        <div class="p-3 mb-2 bg-light text-dark">
+            <p>&copy; apapapapap</p>
+        </div>
+    </footer>
+ 
+</html>
