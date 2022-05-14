@@ -21,7 +21,7 @@ app_name = 'app2'
 
 # Class-based-Viewの場合
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'), # ex: /app2/
+    path('top', views.IndexView.as_view(), name='index'), # ex: /app2/
     path('movie/<int:pk>/',        views.MovieDetailView.as_view(),      name='movie_detail'), # /app2/movie/2/
     path('register/director/',     views.RegisterDirectorView.as_view(), name='add_director'), # /app2/register/director/
     path('register/movie/',        views.RegisterMovieView.as_view(),    name='add_movie'),    # /app2/register/movie/
